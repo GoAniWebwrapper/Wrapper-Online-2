@@ -1,0 +1,187 @@
+<html><script type="text/javascript" class="__REQUESTLY__SCRIPT">(function(namespace) {
+  window[namespace] = window[namespace] || {};
+  window[namespace].responseRules = {};
+
+  let open = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function(method) {
+    this.addEventListener('readystatechange', function() {
+      if (this.readyState === 4 && window[namespace].responseRules.hasOwnProperty(this.responseURL)) {
+        const responseRule = window[namespace].responseRules[this.responseURL];
+        const {response, id} = responseRule;
+        const responseType = this.responseType;
+        let customResponse;
+
+        customResponse = response.type === 'code' ? responseRule.evaluator({
+            method,
+            url: this.responseURL,
+            requestHeaders: this.requestHeaders,
+            requestData: this.requestData,
+            responseType: this.responseType,
+            response: this.response
+          }) : response.value;
+
+        Object.defineProperty(this, 'response', {
+          get: function () {
+            if (response.type === 'static' && responseType === 'json') {
+              return JSON.parse(customResponse);
+            }
+            return customResponse;
+          }
+        });
+
+        if (responseType === '' || responseType === 'text') {
+          Object.defineProperty(this, 'responseText', {
+            get: function () {
+              return customResponse;
+            }
+          });
+        }
+
+        window.postMessage({
+          from: 'requestly',
+          type: 'response_rule_applied',
+          id
+        }, window.location.href);
+      }
+    }, false);
+    open.apply(this, arguments);
+  };
+
+  let send = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send = function(data) {
+    this.requestData = data;
+    send.apply(this, arguments);
+  };
+
+  let setRequestHeader = XMLHttpRequest.prototype.setRequestHeader;
+  XMLHttpRequest.prototype.setRequestHeader = function(header, value) {
+    this.requestHeaders = this.requestHeaders || {};
+    this.requestHeaders[header] = value;
+    setRequestHeader.apply(this, arguments);
+  }
+})('__REQUESTLY__')</script><head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../../favicon.ico" type="image/png">
+
+	<title>wrapper online gold home</title>
+	<meta name="description" content="wrapper online gold is a wrapper online editon to wrapper offlines editon to vyonds legacy video maker built in node.js
+	<meta property=" og:type"="">
+	<meta property="og:title" content="Wrapper Online gold Home">
+	<meta property="og:description" content="wrapper online gold is a wrapper online editon to wrapper offlines editon to vyonds legacy video maker built in node.js">
+	<meta property="og:url" content="https://wrapper.online/">
+	<meta property="og:image:secure_url" content="favicon.ico"> 
+	<meta property="og:image:" content="favicon.ico"> 
+	<meta name="theme-color" content="#FF0080">
+	<link rel="stylesheet" type="text/css" href="https://onutemaster777.github.io/GoAnimate-Modded-Assets/pages/css/modern-normalize.css">
+	<link rel="stylesheet" type="text/css" href="https://onutemaster777.github.io/GoAnimate-Modded-Assets/pages/css/global.css">
+	<link rel="stylesheet" type="text/css" href="https://onutemaster777.github.io/GoAnimate-Modded-Assets/pages/css/list.css">
+</head>
+<body>
+
+<header>
+	<h1 style="margin:0"><img id="logo" src="https://wrapper-online-gold.herokuapp.com/pages/img/logo.png" alt="Wrapper: Offline"></h1>
+		<div id="headbuttons">
+			<div id="char_dropdown" class="button_small">
+				<div>CREATE A CHARACTER</div>
+				<menu>
+					<h2>Comedy World</h2>
+					<a href="/cc?themeId=family&amp;bs=adam">Guy (Adam)</a>
+					<a href="/cc?themeId=family&amp;bs=eve">Girl (Eve)</a>
+					<a href="/cc?themeId=family&amp;bs=bob">Fat (Bob)</a>
+					<a href="/cc?themeId=family&amp;bs=rocky">Buff (Rocky)</a>
+					<hr>
+					<h2>Anime</h2>
+					<a href="/cc?themeId=anime&amp;bs=guy">Guy</a>
+					<a href="/cc?themeId=anime&amp;bs=girl">Girl</a>
+					<a href="/cc?themeId=ninjaanime&amp;bs=guy">Guy (Ninja)</a>
+					<a href="/cc?themeId=ninjaanime&amp;bs=girl">Girl (Ninja)</a>
+					<hr>
+					<h2>Peepz</h2>
+					<a href="/cc?themeId=cc2&amp;bs=default">Lil Peepz</a>
+					<a href="/cc?themeId=chibi&amp;bs=default">Chibi Peepz</a>
+					<a href="/cc?themeId=ninja&amp;bs=default">Chibi Ninjas</a>
+				</menu>
+	
+		</div>
+		<a href="/go_full" class="button_big">MAKE A VIDEO</a>						 
+	
+</div></header>
+
+<main>
+	<table>
+		<thead>
+			<tr>
+				<td></td>
+				<td>Video Title</td>
+				<td>Last Modified</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+		<tfoot>
+			<tr>
+				<td colspan="127"><a id="load_more" href="javascript:;">LOAD MORE...</a></td>
+			</tr>
+		</tfoot>
+	</table>
+</main>
+
+
+<footer>
+	<nav id="foot-left">
+		<a href="/pages/html/1029.html">Wrapper Online Remastered</a>
+
+	<nav id="foot-right">
+		<a href="https://onutemaster777.github.io/GoAnimate-Modded-Assets/">Server Page</a>
+		<a href="https://joseph-crosman.github.io/assets/caillou.html">Caillou</a>
+	</nav>
+</nav></footer>
+
+
+
+
+
+
+
+<script>
+	const closeReq = new XMLHttpRequest();
+	closeReq.open('GET', '/events/close');
+	closeReq.send();
+
+	var json;
+	var tbody = document.getElementsByTagName('tbody')[0];
+	var loadMore = document.getElementById('load_more');
+	const listReq = new XMLHttpRequest();
+	listReq.open('GET', '/movieList');
+	listReq.send();
+
+	var C = 0;
+	function loadRows() {
+		let c = C; C += 69;
+		for (; c < C; c++) {
+			if (c > json.length - 1) {
+				loadMore.remove();
+				break;
+			}
+
+			const tbl = json[c];
+			const date = tbl.date.substr(0, 10) + ' ' + tbl.date.substr(11);
+			tbody.insertAdjacentHTML('beforeend',
+				'<tr><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="javascript:;" onclick="popup(\'' + tbl.id + '\')"></a><a href="/go_full?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a></td></tr>');
+		}
+	}
+
+	loadMore.onclick = loadRows;
+	listReq.onreadystatechange = function (e) {
+		if (listReq.readyState != 4) return;
+		json = JSON.parse(listReq.responseText);
+		loadRows();
+	}
+
+	function popup(id) {
+		window.open('/player?movieId=' + id, 'MsgWindow', 'width=1280,height=720,left=' + (screen.width / 2 - 640) + ',top=' + (screen.height / 2 - 360));
+	}
+</script>
+
+
+</body></html>

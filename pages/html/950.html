@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../../favicon.ico" type="image/png">
+
+	<title>Video List</title>
+	<meta name="description" content="Wrapper Online 3.1.2a not Character Creator">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Wrapper Online's Video List" />
+	<meta property="og:description" content="Wrapper Online 3.1.2a not Character Creator"/>
+	<meta property="og:url" content="https://wrapper.online/" />
+	<meta property="og:image:secure_url" content="https://wrapperonlineassets.ga/favicon.ico" /> 
+	<meta property="og:image:" content="https://wrapperonlineassets.ga/favicon.ico" /> 
+	<meta name="theme-color" content="#FF0080">
+	<link rel="stylesheet" type="text/css" href="../css/modern-normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/list.css">
+</header>
+<body>
+
+<header>
+	<h1 style="margin:0"><img id="logo" src="../img/list_logo.png" alt="Wrapper: Online"/></h1>
+	<nav id="headbuttons">
+		
+		
+						
+			</nav>
+		</div>
+		<a href="/pages/html/list.html" class="button_big">GET STARTED</a>
+	</nav>  
+</header>
+<h1 Rules</h1>
+<p Wrapper Online Legacy Edition attacked from vyond is takedown dmca</b><p Wrapper Online/Offline of best than offline version</b>
+
+<strong Do not Patch Wrapper Online</strong>
+<strong Do not hosting from Evennode and 000Webhost</strong>
+<strong Do not hacking ftom raiders</strong>
+<strong Do not ask from Vyond</strong>
+<strong Do not Spyscam from Hacked in Wrapper Online Site</strong>
+<strong Do not Spywrapper in the money</strong>
+
+<h2 New Features 1.0</h2>
+
+<strong New Update from Wrapper Updates</strong>
+<strong New logo updated from Legacy Edition</strong>
+<strong New pages is number html</strong>
+<strong Only Localhost from Heroku TK Websites etc.</strong>
+<strong New gradient css</strong>
+<strong New Your Videos List</strong>
+
+<h3 Community Guidelines from dmca takedown</h3>
+
+<main>
+	<table>
+		<thead>
+			<tr>
+				
+				<iframe src="https://goanimatewrapperiscool.herokuapp.com" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="720px" marginwidth="1280px" height="400px" width="600px" allowfullscreen></iframe>
+				<td>Video Title</td>
+				<td>Last Modified</td>
+				<h2>Legacy Video Maker</h2>
+				<h1 Rules</h1>
+<p Wrapper Online Legacy Edition attacked from vyond is takedown dmca</b><p Wrapper Online/Offline of best than offline version</b>
+
+<strong Do not Patch Wrapper Online</strong>
+<strong Do not hosting from Evennode and 000Webhost</strong>
+<strong Do not hacking ftom raiders</strong>
+<strong Do not ask from Vyond</strong>
+<strong Do not Spyscam from Hacked in Wrapper Online Site</strong>
+<strong Do not Spywrapper in the money</strong>
+
+<h2 New Features 1.0</h2>
+
+<strong New Update from Wrapper Updates</strong>
+<strong New logo updated from Legacy Edition</strong>
+<strong New pages is number html</strong>
+<strong Only Localhost from Heroku TK Websites etc.</strong>
+<strong New gradient css</strong>
+<strong New Your Videos List</strong>
+
+<h3 Community Guidelines from dmca takedown</h3>
+				
+				<h3>Your Videos Video Maker</h3>
+			</tr>
+		</thead>
+		<tbody></tbody>
+		<tfoot>
+			<tr>
+				<td colspan="127"><a id="load_more" href="javascript:;">LOAD MORE...</a></td>
+			</tr>
+		</tfoot>
+	</table>
+</main>
+
+<footer>
+	<nav id="foot-left">
+		<a href="pages/html/700.html">Dark Mode</a>
+		<a href="pages/html/799.html">Go back to Wrapper Offline</a>
+	</nav>
+
+	<nav id="foot-right">
+		<a href="https://78.63.40.199:700">Wrapper Online Gold</a>
+		<a href="https://78.63.40.199:705">Wrapper Online Remastered</a>
+	</nav>
+</footer>
+
+
+<form enctype='multipart/form-data' action='/upload_movie' method='post'>
+	<input id='file' type="file" onchange="this.form.submit()" name='import' />
+</form>
+
+</body>
+
+<script>
+	const closeReq = new XMLHttpRequest();
+	closeReq.open('GET', '/events/close');
+	closeReq.send();
+
+	var json;
+	var tbody = document.getElementsByTagName('tbody')[0];
+	var loadMore = document.getElementById('load_more');
+	const listReq = new XMLHttpRequest();
+	listReq.open('GET', '/movieList');
+	listReq.send();
+
+	var C = 0;
+	function loadRows() {
+		let c = C; C += 69;
+		for (; c < C; c++) {
+			if (c > json.length - 1) {
+				loadMore.remove();
+				break;
+			}
+
+			const tbl = json[c];
+			const date = tbl.date.substr(0, 10) + ' ' + tbl.date.substr(11);
+			tbody.insertAdjacentHTML('beforeend',
+				'<tr><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="javascript:;" onclick="popup(\'' + tbl.id + '\')"></a><a href="/go_full?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a></td></tr>');
+		}
+	}
+
+	loadMore.onclick = loadRows;
+	listReq.onreadystatechange = function (e) {
+		if (listReq.readyState != 4) return;
+		json = JSON.parse(listReq.responseText);
+		loadRows();
+	}
+
+	function popup(id) {
+		window.open('/player?movieId=' + id, 'MsgWindow', 'width=1280,height=720,left=' + (screen.width / 2 - 640) + ',top=' + (screen.height / 2 - 360));
+	}
+</script>
+
+</html>
+	
+
+
+	
